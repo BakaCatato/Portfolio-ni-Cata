@@ -6,17 +6,17 @@ export const Route = createFileRoute("/")({
   component: Index,
   head: () => ({
     meta: [
-      { title: "Jhone — Frontend Developer & Tech Enthusiast" },
+      { title: "Jhone Paul B. Cataluña Jr. — Frontend Developer & Tech Enthusiast" },
       {
         name: "description",
         content:
-          "Personal portfolio of Jhone, a BSIT student focused on frontend development, PC hardware, and practical cybersecurity.",
+          "Personal portfolio of Jhone Paul B. Cataluña Jr., a BSIT student focused on frontend development, PC hardware, and practical cybersecurity.",
       },
-      { property: "og:title", content: "Jhone — Frontend Developer & Tech Enthusiast" },
+      { property: "og:title", content: "Jhone Paul B. Cataluña Jr. — Frontend Developer & Tech Enthusiast" },
       {
         property: "og:description",
         content:
-          "Personal portfolio of Jhone, a BSIT student focused on frontend development, PC hardware, and practical cybersecurity.",
+          "Personal portfolio of Jhone Paul B. Cataluña Jr., a BSIT student focused on frontend development, PC hardware, and practical cybersecurity.",
       },
     ],
   }),
@@ -31,7 +31,7 @@ function Index() {
         {/* Hero */}
         <section className="flex flex-col items-center pt-24 pb-20 text-center">
           <img src="/profile.jpg" alt="Jhone" className="mb-8 h-32 w-32 rounded-full border border-border object-cover shadow-sm" />
-          <h1 className="text-4xl font-extrabold tracking-tight text-foreground sm:text-6xl">Hi, I'm Jhone</h1>
+          <h1 className="text-4xl font-extrabold tracking-tight text-foreground sm:text-6xl">Hi, I'm Jhone Paul B. Cataluña Jr.</h1>
           <p className="mt-4 text-lg font-medium text-muted-foreground sm:text-xl">
             Frontend Developer &amp; Tech Enthusiast
           </p>
@@ -41,6 +41,13 @@ function Index() {
               className="inline-flex h-10 items-center justify-center rounded-md bg-foreground px-5 text-sm font-medium text-background transition-opacity hover:opacity-90"
             >
               View Projects
+            </a>
+            <a
+              href="/cv.pdf"
+              download
+              className="inline-flex h-10 items-center justify-center rounded-md border border-border bg-background px-5 text-sm font-medium text-foreground transition-colors hover:bg-muted"
+            >
+              📄 Download CV
             </a>
             <a
               href="#contact"
@@ -153,7 +160,7 @@ function Index() {
       {/* Footer */}
       <footer className="border-t border-border/70">
         <div className="mx-auto flex max-w-3xl items-center justify-between px-6 py-6 text-xs text-muted-foreground">
-          <p>© {new Date().getFullYear()} Jhone</p>
+          <p>© {new Date().getFullYear()} Jhone Paul B. Cataluña Jr.</p>
           <div className="flex gap-4">
             <a href="#" className="hover:text-foreground transition-colors">
               <span aria-hidden>💻</span> GitHub

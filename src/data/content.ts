@@ -29,10 +29,14 @@ export const projects = [
 ];
 
 export const skills = [
-  { emoji: "⚛️", label: "React" },
-  { emoji: "🎨", label: "Tailwind CSS" },
-  { emoji: "🧩", label: "PC Assembly" },
-  { emoji: "🛠️", label: "Hardware Troubleshooting" },
-  { emoji: "🛡️", label: "Cybersecurity" },
-  { emoji: "🚨", label: "Cyber Threat Management" },
+  { label: "HTML", emoji: "🌐" },
+  { label: "CSS", emoji: "🎨" },
+  { label: "JavaScript", emoji: "💛" },
+  { label: "React", emoji: "⚛️" },
+  { label: "Tailwind CSS", emoji: "🌊" },
+  { label: "Vite", emoji: "⚡" },
+  { label: "Figma UI/UX", emoji: "✨" },
+  { label: "PC Hardware Diagnosis", emoji: "🔧" },
+  { label: "Cybersecurity", emoji: "🛡️" },
+  { label: "Network Defense", emoji: "🔒" }
 ];
