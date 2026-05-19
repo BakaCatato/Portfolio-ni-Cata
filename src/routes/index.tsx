@@ -28,54 +28,33 @@ function Index() {
     <div className="min-h-screen bg-background text-foreground font-sans antialiased scroll-smooth">
       <Navbar />
 
-      <main id="top" className="mx-auto max-w-6xl px-6 md:px-12 lg:px-16">
-        {/* Hero */}
-        <section className="flex flex-col items-start pt-24 pb-20 text-left">
-          <img src="/profile.jpg" alt="Jhone" className="mb-8 h-32 w-32 rounded-full border border-border object-cover shadow-sm" />
-          <h1 className="text-4xl font-extrabold tracking-tight text-foreground sm:text-6xl">Hi, I'm Jhone Paul B. Cataluña Jr.</h1>
-          <div className="flex flex-col gap-1.5 mt-4 text-sm text-muted-foreground">
-            <p>💻 Frontend Developer & Tech Enthusiast</p>
-            <p>📍 Quezon City, Philippines</p>
-            <p>🎓 3rd-year BSIT Student at Quezon City University</p>
-          </div>
-          <div className="flex flex-wrap gap-4 mt-6 text-sm font-medium">
-            <a href="#" className="text-muted-foreground hover:text-foreground underline underline-offset-4 transition-colors">
-              GitHub
+      <main id="top" className="mx-auto max-w-3xl px-6 pt-16 pb-24 flex flex-col gap-12 md:gap-16">
+        <section>
+          <img src="/profile.jpg" alt="Jhone" className="h-20 w-20 rounded-full mb-4" />
+          <h1 className="text-4xl font-extrabold mb-1">Jhone Paul B. Cataluña Jr.</h1>
+          <p className="text-muted-foreground mb-4">Frontend Developer | Tech Enthusiast</p>
+          <div className="flex flex-wrap gap-2 mb-6">
+            <a href="/cv.pdf" download className="inline-flex items-center gap-1.5 rounded-full border border-border/60 bg-muted/30 px-3 py-1.5 text-xs font-medium text-foreground transition-colors hover:bg-muted">
+              Resume
             </a>
-            <a href="#" className="text-muted-foreground hover:text-foreground underline underline-offset-4 transition-colors">
-              LinkedIn
-            </a>
-            <a href="/cv.pdf" download className="text-muted-foreground hover:text-foreground underline underline-offset-4 transition-colors">
-              Download CV
-            </a>
-            <a href="mailto:hello@jhone.dev" className="text-muted-foreground hover:text-foreground underline underline-offset-4 transition-colors">
+            <a href="mailto:hello@jhone.dev" className="inline-flex items-center gap-1.5 rounded-full border border-border/60 bg-muted/30 px-3 py-1.5 text-xs font-medium text-foreground transition-colors hover:bg-muted">
               Email
             </a>
+            <a href="#" className="inline-flex items-center gap-1.5 rounded-full border border-border/60 bg-muted/30 px-3 py-1.5 text-xs font-medium text-foreground transition-colors hover:bg-muted">
+              LinkedIn
+            </a>
+            <a href="#" className="inline-flex items-center gap-1.5 rounded-full border border-border/60 bg-muted/30 px-3 py-1.5 text-xs font-medium text-foreground transition-colors hover:bg-muted">
+              GitHub
+            </a>
           </div>
+          <p className="text-sm leading-relaxed text-foreground/90 max-w-3xl">
+            I'm a 3rd-year BSIT student focused on building clean interfaces and thoughtful frontend interactions. I also enjoy PC hardware diagnosis and practical cybersecurity.
+          </p>
         </section>
 
-        <hr className="my-10 border-border/60" />
-
-        {/* Background */}
-        <section id="background" className="py-12">
-          <h2 className="text-3xl font-bold tracking-tight text-foreground mb-6">
-            Background
-          </h2>
-          <div className="border-l-2 border-muted pl-4">
-            <p className="text-xs text-muted-foreground">2023 - Present</p>
-            <p className="font-semibold text-foreground">Bachelor of Science in Information Technology</p>
-            <p className="text-sm text-muted-foreground">Quezon City University</p>
-          </div>
-        </section>
-
-        <hr className="my-10 border-border/60" />
-
-        {/* About */}
-        <section id="about" className="py-16">
-          <h2 className="text-3xl font-bold tracking-tight text-foreground mb-6">
-            About
-          </h2>
-          <div className="flex items-start gap-3 rounded-md bg-muted/50 p-4 border border-border/30">
+        <section id="about">
+          <h2 className="text-2xl font-bold tracking-tight text-foreground mb-4">About Me</h2>
+          <div className="bg-muted/50 p-4 border border-border/30 rounded-md flex items-start gap-3">
             <div aria-hidden className="text-xl leading-none">
               💡
             </div>
@@ -88,13 +67,32 @@ function Index() {
           </div>
         </section>
 
-        <hr className="my-10 border-border/60" />
+        <section id="experience">
+          <h2 className="text-2xl font-bold tracking-tight text-foreground mb-4">Experience</h2>
+          <div className="border-l-2 border-muted pl-4">
+            <p className="text-xs text-muted-foreground">2023 - Present</p>
+            <p className="font-semibold text-foreground">Bachelor of Science in Information Technology</p>
+            <p className="text-sm text-muted-foreground">Quezon City University</p>
+          </div>
+        </section>
 
-        {/* Projects */}
-        <section id="projects" className="py-16">
-          <h2 className="text-3xl font-bold tracking-tight text-foreground mb-6">
-            Projects
-          </h2>
+        <section id="stack">
+          <h2 className="text-2xl font-bold tracking-tight text-foreground mb-4">Stack</h2>
+          <ul className="flex flex-wrap gap-2">
+            {skills.map((s) => (
+              <li
+                key={s.label}
+                className="inline-flex items-center gap-1.5 rounded-md bg-secondary/40 px-2 py-1 text-sm text-foreground border border-border/50 transition-colors hover:bg-secondary/60 cursor-default"
+              >
+                <span aria-hidden>{s.emoji}</span>
+                {s.label}
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        <section id="projects">
+          <h2 className="text-2xl font-bold tracking-tight text-foreground mb-4">Projects</h2>
           <div className="grid gap-6 sm:grid-cols-2">
             {projects.map((p) => (
               <article
@@ -133,33 +131,8 @@ function Index() {
           </div>
         </section>
 
-        <hr className="my-10 border-border/60" />
-
-        {/* Skills */}
-        <section id="skills" className="py-16">
-          <h2 className="text-3xl font-bold tracking-tight text-foreground mb-6">
-            Skills
-          </h2>
-          <ul className="flex flex-wrap gap-2">
-            {skills.map((s) => (
-              <li
-                key={s.label}
-                className="inline-flex items-center gap-1.5 rounded-md bg-secondary/40 px-2 py-1 text-sm text-foreground border border-border/50 transition-colors hover:bg-secondary/60 cursor-default"
-              >
-                <span aria-hidden>{s.emoji}</span>
-                {s.label}
-              </li>
-            ))}
-          </ul>
-        </section>
-
-        <hr className="my-10 border-border/60" />
-
-        {/* Certificates */}
-        <section id="certificates" className="py-16">
-          <h2 className="text-3xl font-bold tracking-tight text-foreground mb-6">
-            Certificates
-          </h2>
+        <section id="certificates">
+          <h2 className="text-2xl font-bold tracking-tight text-foreground mb-4">Certificates</h2>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             <Dialog>
               <DialogTrigger asChild>
@@ -221,13 +194,8 @@ function Index() {
           </div>
         </section>
 
-        <hr className="my-10 border-border/60" />
-
-        {/* Contact */}
-        <section id="contact" className="py-16">
-          <h2 className="text-3xl font-bold tracking-tight text-foreground mb-6">
-            Contact
-          </h2>
+        <section id="contact">
+          <h2 className="text-2xl font-bold tracking-tight text-foreground mb-4">Contact</h2>
           <div className="rounded-xl border border-border/50 bg-muted/20 p-6 shadow-xs">
             <p className="text-sm text-foreground/90">
               <span aria-hidden>✉️</span> Reach out anytime at{" "}
