@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { projects, skills } from "../data/content";
+import { Navbar } from "../components/layouts/Navbar";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -23,44 +24,15 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   return (
-    <div className="min-h-screen bg-background text-foreground font-sans antialiased">
-      {/* Nav */}
-      <header className="sticky top-0 z-40 border-b border-border/70 bg-background/80 backdrop-blur">
-        <nav className="mx-auto flex max-w-3xl items-center justify-between px-6 py-4">
-          <a href="#top" className="text-sm font-medium tracking-tight">
-            <span aria-hidden>👋</span> Jhone
-          </a>
-          <ul className="flex items-center gap-6 text-sm text-muted-foreground">
-            <li>
-              <a href="#about" className="hover:text-foreground transition-colors">
-                About
-              </a>
-            </li>
-            <li>
-              <a href="#projects" className="hover:text-foreground transition-colors">
-                Projects
-              </a>
-            </li>
-            <li>
-              <a href="#contact" className="hover:text-foreground transition-colors">
-                Contact
-              </a>
-            </li>
-          </ul>
-        </nav>
-      </header>
+    <div className="min-h-screen bg-background text-foreground font-sans antialiased scroll-smooth">
+      <Navbar />
 
-      <main id="top" className="mx-auto max-w-3xl px-6">
+      <main id="top" className="mx-auto max-w-5xl px-6">
         {/* Hero */}
         <section className="flex flex-col items-center pt-24 pb-20 text-center">
-          <div
-            className="mb-8 flex h-32 w-32 items-center justify-center rounded-full border border-border bg-muted text-4xl text-muted-foreground"
-            aria-label="Profile picture placeholder"
-          >
-            🙂
-          </div>
-          <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl">Hi, I'm Jhone</h1>
-          <p className="mt-4 text-base text-muted-foreground sm:text-lg">
+          <img src="/profile.jpg" alt="Jhone" className="mb-8 h-32 w-32 rounded-full border border-border object-cover shadow-sm" />
+          <h1 className="text-4xl font-extrabold tracking-tight text-foreground sm:text-6xl">Hi, I'm Jhone</h1>
+          <p className="mt-4 text-lg font-medium text-muted-foreground sm:text-xl">
             Frontend Developer &amp; Tech Enthusiast
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
@@ -84,11 +56,11 @@ function Index() {
           <h2 className="mb-6 text-xs font-medium uppercase tracking-widest text-muted-foreground">
             About
           </h2>
-          <div className="flex gap-4 rounded-md border border-border bg-muted/40 p-5">
+          <div className="flex gap-4 rounded-xl border border-border/50 bg-muted/30 p-6 shadow-xs">
             <div aria-hidden className="text-2xl leading-none">
               💡
             </div>
-            <p className="text-sm leading-relaxed text-foreground/90">
+            <p className="text-sm md:text-base leading-relaxed text-foreground/95 font-normal">
               I'm a BSIT student focused on frontend development, with a soft spot for clean
               interfaces and thoughtful interactions. Outside the browser, I tinker with PC hardware
               diagnosis and study practical cybersecurity — endpoint security, malware defense, and
@@ -106,22 +78,22 @@ function Index() {
             {projects.map((p) => (
               <article
                 key={p.title}
-                className="flex flex-col rounded-md border border-border bg-card p-5 transition-colors hover:bg-muted/40"
+                className="flex flex-col rounded-xl border border-border bg-card p-6 transition-all duration-200 hover:-translate-y-1 hover:shadow-md hover:bg-muted/30"
               >
                 <div className="mb-3 flex items-center gap-2">
                   <span aria-hidden className="text-lg">
                     {p.emoji}
                   </span>
-                  <h3 className="text-sm font-medium">{p.title}</h3>
+                  <h3 className="font-semibold text-base text-foreground">{p.title}</h3>
                 </div>
-                <p className="mb-4 text-sm leading-relaxed text-muted-foreground">
+                <p className="mb-4 text-sm leading-relaxed text-muted-foreground/90">
                   {p.description}
                 </p>
                 <ul className="mb-4 flex flex-wrap gap-1.5">
                   {p.tags.map((t) => (
                     <li
                       key={t}
-                      className="rounded border border-border bg-muted px-2 py-0.5 text-xs text-muted-foreground"
+                      className="rounded-md border border-border/70 bg-muted/50 px-2 py-0.5 text-xs text-muted-foreground font-medium"
                     >
                       {t}
                     </li>
@@ -149,7 +121,7 @@ function Index() {
             {skills.map((s) => (
               <li
                 key={s.label}
-                className="inline-flex items-center gap-2 rounded-md border border-border bg-muted/50 px-3 py-1.5 text-sm text-foreground/90"
+                className="inline-flex items-center gap-2 rounded-md border border-border/60 bg-muted/40 px-3.5 py-2 text-sm font-medium text-foreground transition-all hover:bg-muted hover:border-foreground/30 hover:scale-[1.02] cursor-default font-mono"
               >
                 <span aria-hidden>{s.emoji}</span>
                 {s.label}
@@ -163,7 +135,7 @@ function Index() {
           <h2 className="mb-6 text-xs font-medium uppercase tracking-widest text-muted-foreground">
             Contact
           </h2>
-          <div className="rounded-md border border-border p-5">
+          <div className="rounded-xl border border-border/50 bg-muted/20 p-6 shadow-xs">
             <p className="text-sm text-foreground/90">
               <span aria-hidden>✉️</span> Reach out anytime at{" "}
               <a
