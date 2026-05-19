@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { projects, skills } from "../data/content";
 import { Navbar } from "../components/layouts/Navbar";
+import { Dialog, DialogContent, DialogTrigger, DialogHeader, DialogTitle, DialogDescription } from "../components/ui/dialog";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -27,47 +28,58 @@ function Index() {
     <div className="min-h-screen bg-background text-foreground font-sans antialiased scroll-smooth">
       <Navbar />
 
-      <main id="top" className="mx-auto max-w-5xl px-6">
+      <main id="top" className="mx-auto max-w-6xl px-6 md:px-12 lg:px-16">
         {/* Hero */}
-        <section className="flex flex-col items-center pt-24 pb-20 text-center">
+        <section className="flex flex-col items-start pt-24 pb-20 text-left">
           <img src="/profile.jpg" alt="Jhone" className="mb-8 h-32 w-32 rounded-full border border-border object-cover shadow-sm" />
           <h1 className="text-4xl font-extrabold tracking-tight text-foreground sm:text-6xl">Hi, I'm Jhone Paul B. Cataluña Jr.</h1>
-          <p className="mt-4 text-lg font-medium text-muted-foreground sm:text-xl">
-            Frontend Developer &amp; Tech Enthusiast
-          </p>
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-            <a
-              href="#projects"
-              className="inline-flex h-10 items-center justify-center rounded-md bg-foreground px-5 text-sm font-medium text-background transition-opacity hover:opacity-90"
-            >
-              View Projects
+          <div className="flex flex-col gap-1.5 mt-4 text-sm text-muted-foreground">
+            <p>💻 Frontend Developer & Tech Enthusiast</p>
+            <p>📍 Quezon City, Philippines</p>
+            <p>🎓 3rd-year BSIT Student at Quezon City University</p>
+          </div>
+          <div className="flex flex-wrap gap-4 mt-6 text-sm font-medium">
+            <a href="#" className="text-muted-foreground hover:text-foreground underline underline-offset-4 transition-colors">
+              GitHub
             </a>
-            <a
-              href="/cv.pdf"
-              download
-              className="inline-flex h-10 items-center justify-center rounded-md border border-border bg-background px-5 text-sm font-medium text-foreground transition-colors hover:bg-muted"
-            >
-              📄 Download CV
+            <a href="#" className="text-muted-foreground hover:text-foreground underline underline-offset-4 transition-colors">
+              LinkedIn
             </a>
-            <a
-              href="#contact"
-              className="inline-flex h-10 items-center justify-center rounded-md border border-border bg-background px-5 text-sm font-medium text-foreground transition-colors hover:bg-muted"
-            >
-              Contact
+            <a href="/cv.pdf" download className="text-muted-foreground hover:text-foreground underline underline-offset-4 transition-colors">
+              Download CV
+            </a>
+            <a href="mailto:hello@jhone.dev" className="text-muted-foreground hover:text-foreground underline underline-offset-4 transition-colors">
+              Email
             </a>
           </div>
         </section>
 
+        <hr className="my-10 border-border/60" />
+
+        {/* Background */}
+        <section id="background" className="py-12">
+          <h2 className="text-3xl font-bold tracking-tight text-foreground mb-6">
+            Background
+          </h2>
+          <div className="border-l-2 border-muted pl-4">
+            <p className="text-xs text-muted-foreground">2023 - Present</p>
+            <p className="font-semibold text-foreground">Bachelor of Science in Information Technology</p>
+            <p className="text-sm text-muted-foreground">Quezon City University</p>
+          </div>
+        </section>
+
+        <hr className="my-10 border-border/60" />
+
         {/* About */}
         <section id="about" className="py-16">
-          <h2 className="mb-6 text-xs font-medium uppercase tracking-widest text-muted-foreground">
+          <h2 className="text-3xl font-bold tracking-tight text-foreground mb-6">
             About
           </h2>
-          <div className="flex gap-4 rounded-xl border border-border/50 bg-muted/30 p-6 shadow-xs">
-            <div aria-hidden className="text-2xl leading-none">
+          <div className="flex items-start gap-3 rounded-md bg-muted/50 p-4 border border-border/30">
+            <div aria-hidden className="text-xl leading-none">
               💡
             </div>
-            <p className="text-sm md:text-base leading-relaxed text-foreground/95 font-normal">
+            <p className="text-base leading-relaxed text-foreground font-normal">
               I'm a BSIT student focused on frontend development, with a soft spot for clean
               interfaces and thoughtful interactions. Outside the browser, I tinker with PC hardware
               diagnosis and study practical cybersecurity — endpoint security, malware defense, and
@@ -76,59 +88,63 @@ function Index() {
           </div>
         </section>
 
+        <hr className="my-10 border-border/60" />
+
         {/* Projects */}
         <section id="projects" className="py-16">
-          <h2 className="mb-6 text-xs font-medium uppercase tracking-widest text-muted-foreground">
+          <h2 className="text-3xl font-bold tracking-tight text-foreground mb-6">
             Projects
           </h2>
-          <div className="grid gap-4 sm:grid-cols-2">
+          <div className="grid gap-6 sm:grid-cols-2">
             {projects.map((p) => (
               <article
                 key={p.title}
-                className="flex flex-col rounded-xl border border-border bg-card p-6 transition-all duration-200 hover:-translate-y-1 hover:shadow-md hover:bg-muted/30"
+                className="flex flex-col overflow-hidden rounded-xl border border-border/60 bg-card transition-all duration-200 hover:-translate-y-1 hover:shadow-sm"
               >
-                <div className="mb-3 flex items-center gap-2">
-                  <span aria-hidden className="text-lg">
-                    {p.emoji}
-                  </span>
-                  <h3 className="font-semibold text-base text-foreground">{p.title}</h3>
+                <div className="h-36 w-full bg-muted/50 border-b border-border/50 flex items-center justify-center text-5xl">
+                  {p.emoji}
                 </div>
-                <p className="mb-4 text-sm leading-relaxed text-muted-foreground/90">
-                  {p.description}
-                </p>
-                <ul className="mb-4 flex flex-wrap gap-1.5">
-                  {p.tags.map((t) => (
-                    <li
-                      key={t}
-                      className="rounded-md border border-border/70 bg-muted/50 px-2 py-0.5 text-xs text-muted-foreground font-medium"
-                    >
-                      {t}
-                    </li>
-                  ))}
-                </ul>
-                <div className="mt-auto flex gap-4 text-xs text-muted-foreground">
-                  <a href={p.github} className="hover:text-foreground transition-colors">
-                    <span aria-hidden>🔗</span> GitHub
-                  </a>
-                  <a href={p.demo} className="hover:text-foreground transition-colors">
-                    <span aria-hidden>↗</span> Live Demo
-                  </a>
+                <div className="flex flex-col flex-1 p-5">
+                  <h3 className="font-bold text-lg text-foreground mb-2">{p.title}</h3>
+                  <p className="mb-4 text-sm leading-relaxed text-muted-foreground/90">
+                    {p.description}
+                  </p>
+                  <ul className="mb-4 flex flex-wrap gap-1.5">
+                    {p.tags.map((t) => (
+                      <li
+                        key={t}
+                        className="rounded-md bg-muted/60 px-2 py-0.5 text-xs font-medium text-foreground/80 border border-border/40"
+                      >
+                        {t}
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="mt-auto flex gap-4 text-xs text-muted-foreground">
+                    <a href={p.github} className="hover:text-foreground transition-colors">
+                      <span aria-hidden>🔗</span> GitHub
+                    </a>
+                    <a href={p.demo} className="hover:text-foreground transition-colors">
+                      <span aria-hidden>↗</span> Live Demo
+                    </a>
+                  </div>
                 </div>
               </article>
             ))}
           </div>
         </section>
 
+        <hr className="my-10 border-border/60" />
+
         {/* Skills */}
         <section id="skills" className="py-16">
-          <h2 className="mb-6 text-xs font-medium uppercase tracking-widest text-muted-foreground">
+          <h2 className="text-3xl font-bold tracking-tight text-foreground mb-6">
             Skills
           </h2>
           <ul className="flex flex-wrap gap-2">
             {skills.map((s) => (
               <li
                 key={s.label}
-                className="inline-flex items-center gap-2 rounded-md border border-border/60 bg-muted/40 px-3.5 py-2 text-sm font-medium text-foreground transition-all hover:bg-muted hover:border-foreground/30 hover:scale-[1.02] cursor-default font-mono"
+                className="inline-flex items-center gap-1.5 rounded-md bg-secondary/40 px-2 py-1 text-sm text-foreground border border-border/50 transition-colors hover:bg-secondary/60 cursor-default"
               >
                 <span aria-hidden>{s.emoji}</span>
                 {s.label}
@@ -137,9 +153,79 @@ function Index() {
           </ul>
         </section>
 
+        <hr className="my-10 border-border/60" />
+
+        {/* Certificates */}
+        <section id="certificates" className="py-16">
+          <h2 className="text-3xl font-bold tracking-tight text-foreground mb-6">
+            Certificates
+          </h2>
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            <Dialog>
+              <DialogTrigger asChild>
+                <button className="flex flex-col items-start p-5 text-left border border-border/60 rounded-xl bg-card hover:-translate-y-1 hover:shadow-sm hover:bg-muted/30 transition-all duration-200">
+                  <span className="text-3xl mb-3">📜</span>
+                  <h3 className="font-semibold text-sm text-foreground">Network Defense</h3>
+                  <p className="text-xs text-muted-foreground mt-1">Cisco Networking Academy</p>
+                </button>
+              </DialogTrigger>
+              <DialogContent className="sm:max-w-lg">
+                <DialogHeader>
+                  <DialogTitle>Network Defense</DialogTitle>
+                  <DialogDescription>Issued by Cisco Networking Academy</DialogDescription>
+                </DialogHeader>
+                <div className="flex aspect-[4/3] w-full items-center justify-center rounded-md bg-muted/40 text-muted-foreground text-sm border border-border/50">
+                  <span className="text-4xl">🖼️</span>
+                  <span className="ml-2">Certificate Image Placeholder</span>
+                </div>
+              </DialogContent>
+            </Dialog>
+            <Dialog>
+              <DialogTrigger asChild>
+                <button className="flex flex-col items-start p-5 text-left border border-border/60 rounded-xl bg-card hover:-translate-y-1 hover:shadow-sm hover:bg-muted/30 transition-all duration-200">
+                  <span className="text-3xl mb-3">📜</span>
+                  <h3 className="font-semibold text-sm text-foreground">Endpoint Security</h3>
+                  <p className="text-xs text-muted-foreground mt-1">Cisco Networking Academy</p>
+                </button>
+              </DialogTrigger>
+              <DialogContent className="sm:max-w-lg">
+                <DialogHeader>
+                  <DialogTitle>Endpoint Security</DialogTitle>
+                  <DialogDescription>Issued by Cisco Networking Academy</DialogDescription>
+                </DialogHeader>
+                <div className="flex aspect-[4/3] w-full items-center justify-center rounded-md bg-muted/40 text-muted-foreground text-sm border border-border/50">
+                  <span className="text-4xl">🖼️</span>
+                  <span className="ml-2">Certificate Image Placeholder</span>
+                </div>
+              </DialogContent>
+            </Dialog>
+            <Dialog>
+              <DialogTrigger asChild>
+                <button className="flex flex-col items-start p-5 text-left border border-border/60 rounded-xl bg-card hover:-translate-y-1 hover:shadow-sm hover:bg-muted/30 transition-all duration-200">
+                  <span className="text-3xl mb-3">📜</span>
+                  <h3 className="font-semibold text-sm text-foreground">Cyber Threat Management</h3>
+                  <p className="text-xs text-muted-foreground mt-1">Cisco Networking Academy</p>
+                </button>
+              </DialogTrigger>
+              <DialogContent className="sm:max-w-lg">
+                <DialogHeader>
+                  <DialogTitle>Cyber Threat Management</DialogTitle>
+                  <DialogDescription>Issued by Cisco Networking Academy</DialogDescription>
+                </DialogHeader>
+                <div className="flex aspect-[4/3] w-full items-center justify-center rounded-md bg-muted/40 text-muted-foreground text-sm border border-border/50">
+                  <span className="text-4xl">🖼️</span>
+                  <span className="ml-2">Certificate Image Placeholder</span>
+                </div>
+              </DialogContent>
+            </Dialog>
+          </div>
+        </section>
+
+        <hr className="my-10 border-border/60" />
+
         {/* Contact */}
         <section id="contact" className="py-16">
-          <h2 className="mb-6 text-xs font-medium uppercase tracking-widest text-muted-foreground">
+          <h2 className="text-3xl font-bold tracking-tight text-foreground mb-6">
             Contact
           </h2>
           <div className="rounded-xl border border-border/50 bg-muted/20 p-6 shadow-xs">
@@ -159,7 +245,7 @@ function Index() {
 
       {/* Footer */}
       <footer className="border-t border-border/70">
-        <div className="mx-auto flex max-w-3xl items-center justify-between px-6 py-6 text-xs text-muted-foreground">
+        <div className="mx-auto flex max-w-4xl items-center justify-between px-6 py-6 text-xs text-muted-foreground">
           <p>© {new Date().getFullYear()} Jhone Paul B. Cataluña Jr.</p>
           <div className="flex gap-4">
             <a href="#" className="hover:text-foreground transition-colors">
