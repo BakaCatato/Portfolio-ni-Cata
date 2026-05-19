@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { projects, skills } from "../data/content";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -19,54 +20,6 @@ export const Route = createFileRoute("/")({
     ],
   }),
 });
-
-const projects = [
-  {
-    emoji: "🗂️",
-    title: "Task Notion Clone",
-    description:
-      "A minimalist task manager inspired by Notion blocks, with drag-and-drop and keyboard-first UX.",
-    tags: ["React", "Vite", "Tailwind"],
-    github: "#",
-    demo: "#",
-  },
-  {
-    emoji: "🛡️",
-    title: "Endpoint Watch",
-    description:
-      "A lightweight dashboard concept for monitoring endpoint health and flagging suspicious activity.",
-    tags: ["React", "TypeScript", "Tailwind"],
-    github: "#",
-    demo: "#",
-  },
-  {
-    emoji: "🧰",
-    title: "PC Build Advisor",
-    description:
-      "Helps users pick compatible PC parts with quick diagnostics tips for common hardware issues.",
-    tags: ["React", "Vite", "Tailwind"],
-    github: "#",
-    demo: "#",
-  },
-  {
-    emoji: "🔐",
-    title: "Malware Defense Notes",
-    description:
-      "A study companion documenting practical malware defense patterns and incident response checklists.",
-    tags: ["React", "MDX", "Tailwind"],
-    github: "#",
-    demo: "#",
-  },
-];
-
-const skills = [
-  { emoji: "⚛️", label: "React" },
-  { emoji: "🎨", label: "Tailwind CSS" },
-  { emoji: "🧩", label: "PC Assembly" },
-  { emoji: "🛠️", label: "Hardware Troubleshooting" },
-  { emoji: "🛡️", label: "Cybersecurity" },
-  { emoji: "🚨", label: "Cyber Threat Management" },
-];
 
 function Index() {
   return (
@@ -106,9 +59,7 @@ function Index() {
           >
             🙂
           </div>
-          <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl">
-            Hi, I'm Jhone
-          </h1>
+          <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl">Hi, I'm Jhone</h1>
           <p className="mt-4 text-base text-muted-foreground sm:text-lg">
             Frontend Developer &amp; Tech Enthusiast
           </p>
@@ -138,10 +89,10 @@ function Index() {
               💡
             </div>
             <p className="text-sm leading-relaxed text-foreground/90">
-              I'm a BSIT student focused on frontend development, with a soft spot for
-              clean interfaces and thoughtful interactions. Outside the browser, I tinker
-              with PC hardware diagnosis and study practical cybersecurity — endpoint
-              security, malware defense, and the small habits that keep systems healthy.
+              I'm a BSIT student focused on frontend development, with a soft spot for clean
+              interfaces and thoughtful interactions. Outside the browser, I tinker with PC hardware
+              diagnosis and study practical cybersecurity — endpoint security, malware defense, and
+              the small habits that keep systems healthy.
             </p>
           </div>
         </section>
